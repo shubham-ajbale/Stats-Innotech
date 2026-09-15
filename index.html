@@ -1,0 +1,765 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="STATS INNOTECH — Coming Soon"
+    >
+
+    <title>STATS INNOTECH | Coming Soon</title>
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+            margin: 0;
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background: #ffffff;
+            color: #123f86;
+
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        /* =========================================
+           MAIN PAGE
+        ========================================= */
+
+        .coming-soon-page {
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+            isolation: isolate;
+
+            padding:
+                max(24px, env(safe-area-inset-top))
+                max(20px, env(safe-area-inset-right))
+                max(24px, env(safe-area-inset-bottom))
+                max(20px, env(safe-area-inset-left));
+        }
+
+
+        /* =========================================
+           BLUE BACKGROUND FADES
+        ========================================= */
+
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -2;
+            filter: blur(55px);
+        }
+
+        .glow-one {
+            width: clamp(220px, 35vw, 520px);
+            height: clamp(220px, 35vw, 520px);
+
+            left: clamp(-220px, -10vw, -80px);
+            top: clamp(-220px, -10vw, -80px);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(20, 130, 255, 0.32) 0%,
+                    rgba(70, 170, 255, 0.18) 38%,
+                    rgba(255, 255, 255, 0) 72%
+                );
+        }
+
+        .glow-two {
+            width: clamp(250px, 40vw, 580px);
+            height: clamp(250px, 40vw, 580px);
+
+            right: clamp(-250px, -12vw, -100px);
+            bottom: clamp(-250px, -12vw, -100px);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0, 145, 255, 0.30) 0%,
+                    rgba(65, 180, 255, 0.16) 40%,
+                    rgba(255, 255, 255, 0) 72%
+                );
+        }
+
+        .glow-three {
+            width: clamp(180px, 25vw, 380px);
+            height: clamp(180px, 25vw, 380px);
+
+            right: clamp(-150px, -7vw, -50px);
+            top: clamp(30px, 8vw, 120px);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0, 125, 255, 0.12) 0%,
+                    rgba(255, 255, 255, 0) 70%
+                );
+        }
+
+        .glow-four {
+            width: clamp(180px, 25vw, 380px);
+            height: clamp(180px, 25vw, 380px);
+
+            left: clamp(-150px, -7vw, -50px);
+            bottom: clamp(20px, 8vw, 120px);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0, 125, 255, 0.10) 0%,
+                    rgba(255, 255, 255, 0) 70%
+                );
+        }
+
+
+        /* =========================================
+           BACKGROUND LOGO WATERMARKS
+        ========================================= */
+
+        .watermark {
+            position: absolute;
+
+            width: clamp(
+                190px,
+                28vw,
+                480px
+            );
+
+            height: auto;
+
+            object-fit: contain;
+
+            opacity: 0.045;
+
+            pointer-events: none;
+            user-select: none;
+
+            z-index: -1;
+        }
+
+        .watermark-left {
+            left: clamp(-230px, -9vw, -80px);
+            bottom: clamp(-130px, -5vw, -50px);
+        }
+
+        .watermark-right {
+            right: clamp(-230px, -9vw, -80px);
+            top: clamp(-130px, -5vw, -50px);
+        }
+
+
+        /* =========================================
+           MAIN CONTENT
+        ========================================= */
+
+        .content {
+            width: 100%;
+            max-width: 1400px;
+
+            min-height: min(
+                850px,
+                calc(100vh - 40px)
+            );
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                clamp(20px, 5vw, 70px)
+                clamp(16px, 5vw, 80px);
+
+            animation:
+                contentFade 1s ease-out both;
+        }
+
+
+        /* =========================================
+           MAIN MONOGRAM
+           LARGER LOGO
+        ========================================= */
+
+        .main-logo {
+            width: clamp(
+                110px,
+                15vw,
+                210px
+            );
+
+            height: auto;
+
+            margin-bottom:
+                clamp(10px, 1.5vw, 20px);
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 12px 25px
+                    rgba(0, 90, 200, 0.08)
+                );
+
+            animation:
+                logoAppear 1s ease-out both;
+        }
+
+
+        /* =========================================
+           BRAND NAME
+        ========================================= */
+
+        .brand-name {
+            margin: 0;
+
+            color: #1252c4;
+
+            font-size:
+                clamp(
+                    23px,
+                    3.2vw,
+                    52px
+                );
+
+            font-weight: 500;
+
+            line-height: 1.1;
+
+            letter-spacing: 0.02em;
+
+            white-space: nowrap;
+
+            margin-bottom:
+                clamp(
+                    35px,
+                    6vw,
+                    80px
+                );
+        }
+
+        .brand-name strong {
+            font-weight: 750;
+        }
+
+
+        /* =========================================
+           COMING SOON
+           SMALLER THAN ORIGINAL
+        ========================================= */
+
+        .coming-text {
+            margin: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            width: 100%;
+
+            gap:
+                clamp(
+                    8px,
+                    1.5vw,
+                    22px
+                );
+
+            font-size:
+                clamp(
+                    28px,
+                    6vw,
+                    80px
+                );
+
+            font-weight: 750;
+
+            line-height: 0.95;
+
+            letter-spacing:
+                clamp(
+                    0.045em,
+                    0.10vw,
+                    0.12em
+                );
+
+            text-transform: uppercase;
+        }
+
+        .coming {
+            color: #123f86;
+        }
+
+        .soon {
+            background:
+                linear-gradient(
+                    110deg,
+                    #09bde9 0%,
+                    #078ee8 45%,
+                    #145be1 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
+
+        @keyframes contentFade {
+
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes logoAppear {
+
+            from {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        /* =========================================
+           TABLETS
+           601px - 1024px
+        ========================================= */
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+
+            .content {
+                min-height: 100svh;
+
+                padding:
+                    50px
+                    clamp(30px, 7vw, 80px);
+            }
+
+            .main-logo {
+                width: clamp(
+                    125px,
+                    18vw,
+                    175px
+                );
+            }
+
+            .brand-name {
+                margin-bottom: 55px;
+            }
+
+            .coming-text {
+                font-size:
+                    clamp(
+                        40px,
+                        6vw,
+                        68px
+                    );
+            }
+
+            .watermark {
+                width: 300px;
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+           Up to 600px
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .coming-soon-page {
+                padding:
+                    max(18px, env(safe-area-inset-top))
+                    max(16px, env(safe-area-inset-right))
+                    max(18px, env(safe-area-inset-bottom))
+                    max(16px, env(safe-area-inset-left));
+            }
+
+            .content {
+                min-height: 100svh;
+
+                padding:
+                    20px 10px;
+            }
+
+            .main-logo {
+                width:
+                    clamp(
+                        95px,
+                        30vw,
+                        135px
+                    );
+
+                margin-bottom: 12px;
+            }
+
+            .brand-name {
+                font-size:
+                    clamp(
+                        22px,
+                        7vw,
+                        30px
+                    );
+
+                letter-spacing: 0;
+
+                margin-bottom:
+                    clamp(
+                        32px,
+                        10vw,
+                        50px
+                    );
+            }
+
+            .coming-text {
+                font-size:
+                    clamp(
+                        28px,
+                        9vw,
+                        52px
+                    );
+
+                gap: 6px;
+
+                letter-spacing:
+                    clamp(
+                        0.025em,
+                        0.7vw,
+                        0.07em
+                    );
+            }
+
+            .watermark {
+                width:
+                    clamp(
+                        190px,
+                        55vw,
+                        280px
+                    );
+
+                opacity: 0.04;
+            }
+
+            .watermark-left {
+                left: -145px;
+                bottom: -60px;
+            }
+
+            .watermark-right {
+                right: -145px;
+                top: -55px;
+            }
+
+            .glow {
+                filter: blur(45px);
+            }
+        }
+
+
+        /* =========================================
+           SMALL PHONES
+           Up to 380px
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .content {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .main-logo {
+                width: 90px;
+            }
+
+            .brand-name {
+                font-size: 21px;
+
+                margin-bottom: 30px;
+            }
+
+            .coming-text {
+                font-size: 26px;
+
+                gap: 4px;
+
+                letter-spacing: 0.025em;
+            }
+
+            .watermark {
+                width: 220px;
+            }
+        }
+
+
+        /* =========================================
+           LANDSCAPE PHONES
+        ========================================= */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+
+            .coming-soon-page {
+                align-items: center;
+            }
+
+            .content {
+                min-height: 100svh;
+
+                padding:
+                    15px 30px;
+            }
+
+            .main-logo {
+                width:
+                    clamp(
+                        75px,
+                        17vh,
+                        105px
+                    );
+
+                margin-bottom: 6px;
+            }
+
+            .brand-name {
+                font-size:
+                    clamp(
+                        18px,
+                        5vh,
+                        27px
+                    );
+
+                margin-bottom:
+                    clamp(
+                        20px,
+                        5vh,
+                        35px
+                    );
+            }
+
+            .coming-text {
+                font-size:
+                    clamp(
+                        26px,
+                        8vh,
+                        48px
+                    );
+            }
+
+            .watermark {
+                width: 190px;
+            }
+        }
+
+
+        /* =========================================
+           LARGE LAPTOPS / DESKTOPS
+        ========================================= */
+
+        @media (min-width: 1400px) {
+
+            .content {
+                max-width: 1500px;
+            }
+
+            .main-logo {
+                width: 210px;
+            }
+
+            .brand-name {
+                font-size: 52px;
+            }
+
+            .coming-text {
+                font-size: 80px;
+            }
+        }
+
+
+        /* =========================================
+           ULTRAWIDE MONITORS
+        ========================================= */
+
+        @media (min-width: 1800px) {
+
+            .content {
+                max-width: 1600px;
+            }
+
+            .main-logo {
+                width: 225px;
+            }
+
+            .brand-name {
+                font-size: 56px;
+            }
+
+            .coming-text {
+                font-size: 90px;
+            }
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="coming-soon-page">
+
+        <!-- =====================================
+             BLUE BACKGROUND FADES
+        ====================================== -->
+
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
+        <div class="glow glow-four"></div>
+
+
+        <!-- =====================================
+             SUBTLE BACKGROUND LOGOS
+        ====================================== -->
+
+        <img
+            src="STATS monogram - colored.png"
+            class="watermark watermark-left"
+            alt=""
+            aria-hidden="true"
+        >
+
+        <img
+            src="STATS monogram - colored.png"
+            class="watermark watermark-right"
+            alt=""
+            aria-hidden="true"
+        >
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <section class="content">
+
+            <!-- Logo -->
+            <img
+                src="STATS monogram - colored.png"
+                class="main-logo"
+                alt="STATS INNOTECH"
+            >
+
+
+            <!-- Company name -->
+            <div class="brand-name">
+                <strong>STATS</strong> INNOTECH
+            </div>
+
+
+            <!-- Coming Soon -->
+            <h1 class="coming-text">
+
+                <span class="coming">
+                    COMING
+                </span>
+
+                <span class="soon">
+                    SOON
+                </span>
+
+            </h1>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
